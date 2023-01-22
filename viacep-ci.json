@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "45eb0fe0-3d3a-4ff8-a636-bd483bec0844",
+		"name": "ViaCep-Consultas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23799089"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function zipCode() {\r",
+							"\r",
+							"    let zipCode = [ \"03982-000\", \"03982-045\", \"09271-240\"]\r",
+							"\r",
+							"\r",
+							"    let randomItem = zipCode[Math.floor(Math.random()* zipCode.length)];\r",
+							"\r",
+							"    return randomItem;\r",
+							"\r",
+							"}\r",
+							"\r",
+							"pm.variables.set(\"ZipCode\", zipCode());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{ZipCode}}/json/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{ZipCode}}",
+						"json",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
